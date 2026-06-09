@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parsimony Earth</title>
+    <title>ParsimonyEarthLab</title>
     <style>
         /* Base Styling & Resets */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,36 +16,12 @@
         a { color: inherit; text-decoration: none; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* Very Top Utility Bar */
-        .utility-bar-wrapper {
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 30px;
-        }
-        .utility-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #888;
-        }
-        .utility-left { display: flex; align-items: center; }
-        .utility-brand {
-            background-color: #b31b2c; /* Nieman crimson */
-            color: #fff;
-            padding: 8px 12px;
-            margin-right: 15px;
-            font-weight: 900;
-        }
-        .utility-links a { margin-right: 15px; transition: color 0.2s; }
-        .utility-links a:hover { color: #b31b2c; }
-        .utility-right span { color: #b31b2c; } /* Highlight word */
-
         /* Header / Logo Area */
         .main-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 30px;
             margin-bottom: 25px;
         }
         .logo {
@@ -53,8 +29,9 @@
             font-weight: 900;
             letter-spacing: -0.04em;
         }
-        .logo-first { color: #b31b2c; }
-        .logo-second { color: #111111; }
+        .logo-first { color: #e89510; } /* Goldish-orange */
+        .logo-second { color: #2d7a3c; } /* Darker green (but not too dark) */
+        .logo-third { color: #111111; }  /* Black */
         
         .header-actions {
             display: flex;
@@ -87,8 +64,16 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        .nav-group-left a { margin-right: 25px; }
-        .nav-group-left a:hover, .category-nav a:hover { color: #b31b2c; }
+        .nav-group-left a { margin-right: 25px; transition: color 0.2s; }
+        .nav-group-left a:hover, .nav-group-right a:hover { color: #e89510; }
+        
+        /* Highlight Category specific color */
+        .category-nav .nav-highlight {
+            color: #64b56b; /* Lighter green */
+        }
+        .category-nav .nav-highlight:hover {
+            color: #4c9652;
+        }
 
         /* Main Grid Layout */
         .content-grid {
@@ -140,7 +125,7 @@
         }
         
         .promo-box {
-            background-color: #f2a900; /* Deep golden yellow */
+            background-color: #64b56b; /* Matched to lighter green nav link */
             color: #ffffff;
             padding: 40px 30px;
             text-align: center;
@@ -167,7 +152,6 @@
             line-height: 1.4;
             color: #111111;
         }
-        /* Make the first sidebar item italicized just like the screenshot */
         .sidebar-item.italicized h3 {
             font-style: italic;
         }
@@ -178,48 +162,29 @@
             .category-nav { flex-wrap: wrap; gap: 10px; }
             .hero-text-box { padding: 30px 20px; }
             .main-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .utility-bar { flex-direction: column; gap: 10px; padding: 10px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="utility-bar-wrapper">
-        <div class="container utility-bar">
-            <div class="utility-left">
-                <div class="utility-brand">Parsimony</div>
-                <div class="utility-links">
-                    <a href="#">Methodology</a>
-                    <a href="#">Reports</a>
-                    <a href="#">Lab</a>
-                    <a href="#">Archive</a>
-                </div>
-            </div>
-            <div class="utility-right">
-                Parsimony Earth Foundation at <span>Stanford</span>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <header class="main-header">
             <div class="logo">
-                <span class="logo-first">Parsimony</span><span class="logo-second">Earth</span>
+                <span class="logo-first">Parsimony</span><span class="logo-second">Earth</span><span class="logo-third">Lab</span>
             </div>
             <div class="header-actions">
                 <a href="#">ABOUT</a>
-                <a href="#">X</a> <a href="#">M</a>
                 <a href="#" class="subscribe-btn">SUBSCRIBE</a>
             </div>
         </header>
 
         <nav class="category-nav">
             <div class="nav-group-left">
-                <a href="#">CARBON BUDGETS</a>
-                <a href="#">GRID SYSTEMS</a>
-                <a href="#">POLICY & METRICS</a>
-                <a href="#">NUCLEAR DEPLOYMENT</a>
-                <a href="#">LITERATURE REVIEW</a>
+                <a href="#">EMERGING TECH</a>
+                <a href="#">TERRESTRIAL</a>
+                <a href="#">WATER</a>
+                <a href="#">MID-TRANSITION POLICY</a>
+                <a href="#" class="nav-highlight">HIGHLIGHTS</a>
             </div>
             <div class="nav-group-right">
                 <a href="#">DATA NOTES</a>
