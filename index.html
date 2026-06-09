@@ -31,19 +31,23 @@
             line-height: 1.1;
         }
         
+        /* The thick outline trick */
         .logo-first { 
+            position: relative;
             color: #ffffff; 
-            /* Using multi-directional text-shadow to create a unified outline without internal overlapping */
-            text-shadow: 
-                -2px -2px 0 #2d7a3c,
-                 0   -2px 0 #2d7a3c,
-                 2px -2px 0 #2d7a3c,
-                 2px  0   0 #2d7a3c,
-                 2px  2px 0 #2d7a3c,
-                 0    2px 0 #2d7a3c,
-                -2px  2px 0 #2d7a3c,
-                -2px  0   0 #2d7a3c;
+            display: inline-block;
+            z-index: 1; /* Keeps the white text on top */
         } 
+        
+        .logo-first::before {
+            content: attr(data-text); /* Pulls the word "Parsimony" from the HTML */
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1; /* Pushes the outline behind the white text */
+            -webkit-text-stroke: 5px #2d7a3c; /* Change this number to make it thicker/thinner */
+            color: transparent; 
+        }
         
         .logo-second { color: #2d7a3c; } /* Darker green */
         .logo-third { color: #111111; }  /* Black */
@@ -100,19 +104,28 @@
             color: #1a4f25;
         }
 
-        /* Main Grid Layout */
+        /* Main Grid Layout - SWAPPED */
         .content-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 2fr; /* 1 part left, 2 parts right */
             gap: 40px;
             margin-bottom: 60px;
         }
 
-        /* Left Content: Hero Article */
+        /* Left Content: Sidebar (Moved to Order 1) */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            order: 1; /* Forces it to the left column */
+        }
+
+        /* Right Content: Hero Article (Moved to Order 2) */
         .hero-article {
             display: flex;
             flex-direction: column;
+            order: 2; /* Forces it to the right column */
         }
+        
         .hero-image-placeholder {
             width: 100%;
             height: 400px;
@@ -141,12 +154,6 @@
             font-size: 1.15rem;
             line-height: 1.6;
             color: #cccccc;
-        }
-
-        /* Right Content: Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
         }
         
         .promo-box {
@@ -184,6 +191,8 @@
         /* Mobile Optimization */
         @media (max-width: 900px) {
             .content-grid { grid-template-columns: 1fr; gap: 40px; }
+            .sidebar { order: 2; } /* Put sidebar back on bottom for mobile */
+            .hero-article { order: 1; } /* Keep hero image on top for mobile */
             .category-nav { flex-wrap: wrap; gap: 10px; }
             .hero-text-box { padding: 30px 20px; }
             .main-header { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -195,7 +204,7 @@
     <div class="container">
         <header class="main-header">
             <div class="logo">
-                <span class="logo-first">Parsimony</span><span class="logo-second">Earth</span><span class="logo-third">Lab</span>
+                <span class="logo-first" data-text="Parsimony">Parsimony</span><span class="logo-second">Earth</span><span class="logo-third">Lab</span>
             </div>
             <div class="header-actions">
                 <a href="#">ABOUT</a>
@@ -208,9 +217,9 @@
         <nav class="category-nav">
             <div class="nav-group-left">
                 <a href="#">EMERGING TECH</a>
+                <a href="#">MID-TRANSITION POLICY</a>
                 <a href="#">TERRESTRIAL</a>
                 <a href="#">WATER</a>
-                <a href="#">MID-TRANSITION POLICY</a>
                 <a href="#" class="nav-highlight">HIGHLIGHTS</a>
             </div>
             <div class="nav-group-right">
