@@ -33,7 +33,6 @@
             margin-top: 30px;
         }
         
-        /* Flexbox added here to lock all words to the exact same baseline and sizing */
         .logo {
             display: flex;
             align-items: baseline;
@@ -59,6 +58,14 @@
             z-index: -1; 
             -webkit-text-stroke: 8px #2d7a3c; 
             color: transparent; 
+        }
+
+        /* New wrapper for EarthLab styling */
+        .earthlab-group {
+            font-size: 0.75em; /* Makes it exactly 3/4ths the size */
+            border-bottom: 2px solid #dcdcdc; /* The faint grey underscore */
+            padding-bottom: 2px; /* Pushes the underscore slightly away from the letters */
+            margin-left: 4px; /* Gives a tiny bit of breathing room from the thick Parsimony border */
         }
         
         .logo-second { color: #2d7a3c; } /* Darker green */
@@ -226,7 +233,10 @@
     <div class="container">
         <header class="main-header">
             <div class="logo">
-                <span class="logo-first" data-text="Parsimony">Parsimony</span><span class="logo-second">Earth</span><span class="logo-third">Lab</span>
+                <span class="logo-first" data-text="Parsimony">Parsimony</span>
+                <span class="earthlab-group">
+                    <span class="logo-second">Earth</span><span class="logo-third">Lab</span>
+                </span>
             </div>
             <div class="header-actions">
                 <a href="#">ABOUT</a>
