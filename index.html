@@ -14,14 +14,14 @@
             line-height: 1.5;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensures footer stays at bottom */
+            min-height: 100vh;
         }
         a { color: inherit; text-decoration: none; }
         .container { 
             max-width: 1100px; 
             margin: 0 auto; 
             padding: 0 20px; 
-            flex-grow: 1; /* Pushes footer down */
+            flex-grow: 1; 
             width: 100%;
         }
 
@@ -33,17 +33,15 @@
             margin-top: 30px;
         }
         
-        /* Flexbox alignment changed to flex-start for top alignment */
         .logo {
             display: flex;
-            align-items: flex-start; /* Top alignment */
+            align-items: flex-start;
             font-size: 3.5rem;
             font-weight: 900;
             letter-spacing: -0.02em; 
             line-height: 1.1;
         }
         
-        /* The thick outline trick */
         .logo-first { 
             position: relative;
             color: #ffffff; 
@@ -61,17 +59,16 @@
             color: transparent; 
         }
 
-        /* Wrapper for EarthLab styling */
         .earthlab-group {
-            font-size: 0.75em; /* Makes it exactly 3/4ths the size */
-            border-bottom: 2px solid #dcdcdc; /* The faint grey underscore */
-            padding-bottom: 2px; /* Pushes the underscore slightly away from the letters */
-            margin-left: 14px; /* Fixes the squishing between the 'y' and 'E' */
-            margin-top: 5px; /* A slight nudge down so the caps align perfectly visually */
+            font-size: 0.75em; 
+            border-bottom: 2px solid #dcdcdc; 
+            padding-bottom: 2px; 
+            margin-left: 14px; 
+            margin-top: 5px; 
         }
         
-        .logo-second { color: #2d7a3c; } /* Darker green */
-        .logo-third { color: #111111; }  /* Black */
+        .logo-second { color: #2d7a3c; } 
+        .logo-third { color: #111111; }  
         
         .header-actions {
             display: flex;
@@ -81,7 +78,7 @@
             font-weight: 700;
         }
         .subscribe-btn {
-            background-color: #ffe673; /* Nieman Yellow */
+            background-color: #ffe673; 
             color: #111;
             padding: 8px 16px;
             font-weight: 900;
@@ -90,7 +87,7 @@
         }
         .subscribe-btn:hover { background-color: #eed562; }
 
-        /* Tagline - Positioned right above the nav line */
+        /* Tagline */
         .tagline {
             font-size: 1.05rem;
             color: #666666;
@@ -103,7 +100,7 @@
         /* Navigation Categories */
         .category-nav {
             display: flex;
-            justify-content: flex-start; /* Aligns all items to the left */
+            justify-content: flex-start; 
             border-top: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
             padding: 12px 0;
@@ -118,9 +115,8 @@
         .category-nav a:last-child { margin-right: 0; }
         .category-nav a:hover { color: #e89510; }
         
-        /* Highlight Category specific color */
         .category-nav .nav-highlight {
-            color: #2d7a3c; /* Matched to 'Earth' green */
+            color: #2d7a3c; 
         }
         .category-nav .nav-highlight:hover {
             color: #1a4f25;
@@ -129,7 +125,7 @@
         /* Main Grid Layout */
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr; /* 1 part left, 2 parts right */
+            grid-template-columns: 1fr 2fr; 
             gap: 40px;
             margin-bottom: 60px;
         }
@@ -138,7 +134,7 @@
         .sidebar {
             display: flex;
             flex-direction: column;
-            order: 1; /* Forces it to the left column */
+            order: 1; 
         }
 
         /* Paper of the Week Component */
@@ -185,7 +181,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #111;
-            border-bottom: 2px solid #ffe673; /* Matches the Nieman yellow */
+            border-bottom: 2px solid #ffe673; 
             padding-bottom: 2px;
             transition: border-color 0.2s;
         }
@@ -193,11 +189,56 @@
             border-color: #2d7a3c;
         }
 
+        /* Flexible Media Component (Maps, Viz, Videos) */
+        .media-feature {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .media-feature-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #e89510; /* Orange highlight color to contrast the paper block */
+            margin-bottom: 12px;
+        }
+        .media-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #222;
+            background-image: url('https://via.placeholder.com/600x338/2b2b2b/ffffff?text=Map+or+Data+Visualization');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            transition: border-color 0.2s, opacity 0.2s;
+        }
+        .media-thumbnail:hover {
+            border-color: #2d7a3c;
+            opacity: 0.9;
+        }
+        .media-feature h3 {
+            font-family: "Georgia", serif;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            color: #111111;
+            margin-bottom: 6px;
+        }
+        .media-feature h3:hover {
+            color: #e89510;
+        }
+        .media-caption {
+            font-size: 0.85rem;
+            color: #666666;
+        }
+
         /* Right Content: Hero Article */
         .hero-article {
             display: flex;
             flex-direction: column;
-            order: 2; /* Forces it to the right column */
+            order: 2; 
         }
         
         .hero-image-placeholder {
@@ -234,7 +275,6 @@
             padding: 20px 0;
             border-bottom: 1px solid #e0e0e0;
             font-family: "Georgia", serif;
-            border-top: 1px solid #e0e0e0;
         }
         .sidebar-item h3 {
             font-size: 1.25rem;
@@ -253,7 +293,7 @@
             text-align: center;
             font-size: 0.8rem;
             color: #888888;
-            margin-top: auto; /* Pushes it to the very bottom */
+            margin-top: auto; 
         }
 
         /* Mobile Optimization */
@@ -312,6 +352,17 @@
                     <div class="authors">By Dr. Sarah Jenkins & The MIT Earth Lab</div>
                     <p><strong>Why we selected it:</strong> This paper cuts through the noise of speculative geothermal scaling, offering a parsimonious model based strictly on thermodynamic constraints and existing drilling data.</p>
                     <a href="#" class="read-paper-btn">Read the Paper &rarr;</a>
+                </div>
+
+                <div class="media-feature">
+                    <div class="media-feature-label">Map of the Week</div>
+                    <a href="#">
+                        <div class="media-thumbnail"></div>
+                    </a>
+                    <a href="#">
+                        <h3>Interactive: Global Ocean Heat Content Anomalies (2000-2025)</h3>
+                    </a>
+                    <div class="media-caption">Visualization by the NOAA Earth System Research Laboratory</div>
                 </div>
 
                 <article class="sidebar-item">
