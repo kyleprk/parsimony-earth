@@ -70,50 +70,20 @@
         .logo-second { color: #2d7a3c; } 
         .logo-third { color: #111111; }  
 
-        /* Tagline */
+        /* Tagline & Search Row */
+        .tagline-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Aligns search bar to the bottom line of the tagline */
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
         .tagline {
             font-size: 1.05rem;
             color: #666666;
-            margin-top: 20px; 
-            margin-bottom: 8px; 
             font-style: italic;
             font-family: "Georgia", serif;
-        }
-
-        /* Navigation Categories */
-        .category-nav {
-            display: flex;
-            justify-content: space-between; 
-            align-items: center; /* Ensures vertical centering for the search bar */
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            padding: 12px 0;
-            margin-bottom: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .nav-left, .nav-right, .nav-center {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-left a { margin-right: 35px; transition: color 0.2s; }
-        .nav-left a:last-child { margin-right: 0; }
-        
-        .nav-right a { margin-left: 35px; transition: color 0.2s; }
-        .nav-right a:first-child { margin-left: 0; }
-        
-        .category-nav a:hover { color: #e89510; }
-        
-        .category-nav .nav-highlight {
-            color: #2d7a3c; 
-        }
-        .category-nav .nav-highlight:hover {
-            color: #1a4f25;
         }
 
         /* Search Bar Styling */
@@ -156,12 +126,49 @@
             width: 180px; /* Gently expands on click */
         }
 
+        /* Navigation Categories */
+        .category-nav {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 12px 0;
+            margin-bottom: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a { margin-right: 35px; transition: color 0.2s; }
+        .nav-left a:last-child { margin-right: 0; }
+        
+        .nav-right a { margin-left: 35px; transition: color 0.2s; }
+        .nav-right a:first-child { margin-left: 0; }
+        
+        .category-nav a:hover { color: #e89510; }
+        
+        .category-nav .nav-highlight {
+            color: #2d7a3c; 
+        }
+        .category-nav .nav-highlight:hover {
+            color: #1a4f25;
+        }
+
         /* Main Grid Layout */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 2fr; 
             gap: 40px;
             margin-bottom: 60px;
+            align-items: stretch; /* Ensures columns match height natively */
         }
 
         /* Left Content: Sidebar */
@@ -178,6 +185,9 @@
             border-top: 4px solid #2d7a3c;
             padding: 25px;
             margin-bottom: 30px;
+        }
+        .sidebar-feature:last-child {
+            margin-bottom: 0; /* Removes bottom margin on the last item so it aligns nicely at the bottom */
         }
         .sidebar-feature-label {
             font-size: 0.75rem;
@@ -228,6 +238,7 @@
             display: flex;
             flex-direction: column;
             order: 2; 
+            height: 100%; /* Spans full height of the grid cell */
         }
         
         .hero-image-placeholder {
@@ -239,12 +250,18 @@
             background-position: center;
             border: 1px solid #ddd;
             border-bottom: none;
+            flex-shrink: 0; /* Prevents the image from shrinking */
         }
+        
         .hero-text-box {
             background-color: #2b2b2b;
             color: #ffffff;
             padding: 40px 50px;
             text-align: center;
+            flex-grow: 1; /* Tells the text box to expand and fill all remaining space down to match the sidebar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically centers the text within the expanded box */
         }
         .hero-text-box h2 {
             font-family: "Georgia", serif;
@@ -275,11 +292,11 @@
             .content-grid { grid-template-columns: 1fr; gap: 40px; }
             .sidebar { order: 2; } 
             .hero-article { order: 1; } 
+            .tagline-row { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .search-wrapper { width: 100%; max-width: 250px; }
             .category-nav { flex-direction: column; align-items: flex-start; gap: 15px; }
             .nav-left, .nav-right { flex-wrap: wrap; gap: 15px; }
             .nav-left a, .nav-right a { margin: 0; }
-            .nav-center { width: 100%; }
-            .search-wrapper { width: 100%; max-width: 250px; margin: 10px 0; }
             .hero-text-box { padding: 30px 20px; }
             .main-header { flex-direction: column; align-items: flex-start; gap: 20px; }
         }
@@ -297,7 +314,16 @@
             </div>
         </header>
 
-        <div class="tagline">Exploring climate solutions at the frontier of science.</div>
+        <div class="tagline-row">
+            <div class="tagline">Exploring climate solutions at the frontier of science.</div>
+            
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search">
+            </div>
+        </div>
 
         <nav class="category-nav">
             <div class="nav-left">
@@ -305,15 +331,6 @@
                 <a href="#">NATURAL SYSTEMS</a>
                 <a href="#">POLICY</a>
                 <a href="#" class="nav-highlight">HIGHLIGHTS</a>
-            </div>
-            
-            <div class="nav-center">
-                <div class="search-wrapper">
-                    <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>
-                    <input type="text" class="search-input" placeholder="Search">
-                </div>
             </div>
 
             <div class="nav-right">
