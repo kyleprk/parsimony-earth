@@ -141,6 +141,58 @@
             order: 1; /* Forces it to the left column */
         }
 
+        /* Paper of the Week Component */
+        .paper-feature {
+            background-color: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid #2d7a3c;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .paper-feature-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #2d7a3c;
+            margin-bottom: 12px;
+        }
+        .paper-feature h3 {
+            font-family: "Georgia", serif;
+            font-size: 1.4rem;
+            line-height: 1.3;
+            color: #111111;
+            margin-bottom: 8px;
+        }
+        .paper-feature h3:hover {
+            color: #2d7a3c;
+        }
+        .paper-feature .authors {
+            font-size: 0.85rem;
+            color: #666666;
+            margin-bottom: 15px;
+        }
+        .paper-feature p {
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .read-paper-btn {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111;
+            border-bottom: 2px solid #ffe673; /* Matches the Nieman yellow */
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+        .read-paper-btn:hover {
+            border-color: #2d7a3c;
+        }
+
         /* Right Content: Hero Article */
         .hero-article {
             display: flex;
@@ -177,27 +229,11 @@
             line-height: 1.6;
             color: #cccccc;
         }
-        
-        .promo-box {
-            background-color: #64b56b; 
-            color: #ffffff;
-            padding: 40px 30px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .promo-box p {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            line-height: 1.3;
-        }
 
         .sidebar-item {
             padding: 20px 0;
             border-bottom: 1px solid #e0e0e0;
             font-family: "Georgia", serif;
-        }
-        .sidebar-item:first-of-type {
             border-top: 1px solid #e0e0e0;
         }
         .sidebar-item h3 {
@@ -206,8 +242,8 @@
             line-height: 1.4;
             color: #111111;
         }
-        .sidebar-item.italicized h3 {
-            font-style: italic;
+        .sidebar-item:hover h3 {
+            color: #2d7a3c;
         }
 
         /* Minimalist Footer */
@@ -268,23 +304,17 @@
 
             <aside class="sidebar">
                 
-                <div class="promo-box">
-                    <p>To close out the quarter, we asked some of the sharpest engineers we know to map out what 2027 will bring for storage tech. Here's what they had to say.</p>
+                <div class="paper-feature">
+                    <div class="paper-feature-label">Paper of the Week</div>
+                    <a href="#">
+                        <h3>Dynamic Modeling of Next-Generation Geothermal Grids</h3>
+                    </a>
+                    <div class="authors">By Dr. Sarah Jenkins & The MIT Earth Lab</div>
+                    <p><strong>Why we selected it:</strong> This paper cuts through the noise of speculative geothermal scaling, offering a parsimonious model based strictly on thermodynamic constraints and existing drilling data.</p>
+                    <a href="#" class="read-paper-btn">Read the Paper &rarr;</a>
                 </div>
 
-                <article class="sidebar-item italicized">
-                    <a href="#">
-                        <h3>With its new report, the IEA model takes on transmission bottlenecks</h3>
-                    </a>
-                </article>
-
                 <article class="sidebar-item">
-                    <a href="#">
-                        <h3>The California ISO will cut 15% of its speculative capacity pipeline — and may restructure interconnection queues</h3>
-                    </a>
-                </article>
-
-                 <article class="sidebar-item">
                     <a href="#">
                         <h3>How direct point-source verification is quietly replacing carbon offset markets</h3>
                     </a>
