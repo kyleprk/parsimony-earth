@@ -15,6 +15,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            /* NEW: Top border matching the "Earth" green */
+            border-top: 6px solid #2d7a3c; 
         }
         a { color: inherit; text-decoration: none; }
         .container { 
@@ -74,7 +76,7 @@
         .tagline-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end; /* Aligns search bar to the bottom line of the tagline */
+            align-items: flex-end;
             margin-top: 25px;
             margin-bottom: 12px;
         }
@@ -95,7 +97,7 @@
             transition: border-color 0.2s;
         }
         .search-wrapper:focus-within {
-            border-bottom: 1px solid #2d7a3c; /* Turns green when active */
+            border-bottom: 1px solid #2d7a3c;
         }
         .search-icon {
             width: 16px;
@@ -123,7 +125,7 @@
             text-transform: uppercase;
         }
         .search-input:focus {
-            width: 180px; /* Gently expands on click */
+            width: 180px;
         }
 
         /* Navigation Categories */
@@ -168,7 +170,7 @@
             grid-template-columns: 1fr 2fr; 
             gap: 40px;
             margin-bottom: 60px;
-            align-items: stretch; /* Ensures columns match height natively */
+            align-items: stretch;
         }
 
         /* Left Content: Sidebar */
@@ -187,7 +189,7 @@
             margin-bottom: 30px;
         }
         .sidebar-feature:last-child {
-            margin-bottom: 0; /* Removes bottom margin on the last item so it aligns nicely at the bottom */
+            margin-bottom: 0;
         }
         .sidebar-feature-label {
             font-size: 0.75rem;
@@ -238,7 +240,7 @@
             display: flex;
             flex-direction: column;
             order: 2; 
-            height: 100%; /* Spans full height of the grid cell */
+            height: 100%;
         }
         
         .hero-image-placeholder {
@@ -250,7 +252,7 @@
             background-position: center;
             border: 1px solid #ddd;
             border-bottom: none;
-            flex-shrink: 0; /* Prevents the image from shrinking */
+            flex-shrink: 0;
         }
         
         .hero-text-box {
@@ -258,10 +260,10 @@
             color: #ffffff;
             padding: 40px 50px;
             text-align: center;
-            flex-grow: 1; /* Tells the text box to expand and fill all remaining space down to match the sidebar */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Vertically centers the text within the expanded box */
+            justify-content: center;
         }
         .hero-text-box h2 {
             font-family: "Georgia", serif;
