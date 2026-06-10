@@ -103,7 +103,7 @@
         /* Navigation Categories */
         .category-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Aligns all items to the left */
             border-top: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
             padding: 12px 0;
@@ -114,8 +114,9 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        .nav-group-left a { margin-right: 25px; transition: color 0.2s; }
-        .nav-group-left a:hover, .nav-group-right a:hover { color: #e89510; }
+        .category-nav a { margin-right: 35px; transition: color 0.2s; }
+        .category-nav a:last-child { margin-right: 0; }
+        .category-nav a:hover { color: #e89510; }
         
         /* Highlight Category specific color */
         .category-nav .nav-highlight {
@@ -249,17 +250,10 @@
         <div class="tagline">Exploring climate solutions at the frontier of science.</div>
 
         <nav class="category-nav">
-            <div class="nav-group-left">
-                <a href="#">EMERGING TECH</a>
-                <a href="#">MID-TRANSITION POLICY</a>
-                <a href="#">TERRESTRIAL</a>
-                <a href="#">MARINE</a>
-                <a href="#">BIODIVERSITY</a>
-                <a href="#" class="nav-highlight">HIGHLIGHTS</a>
-            </div>
-            <div class="nav-group-right">
-                <a href="#">DATA NOTES</a>
-            </div>
+            <a href="#">EMERGING TECH</a>
+            <a href="#">NATURAL SYSTEMS</a>
+            <a href="#">POLICY</a>
+            <a href="#" class="nav-highlight">HIGHLIGHTS</a>
         </nav>
 
         <main class="content-grid">
